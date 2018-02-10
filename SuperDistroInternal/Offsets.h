@@ -16,11 +16,20 @@ namespace Offsets
 	float* health;
 	float* mana;
 
+	bool uHealth;
+	bool uMana;
+	bool uMenu;
+
 	void calculateOffsets()
 	{
 		exeAddr = (DWORD)GetModuleHandle(NULL);
+
 		localPLayerBase = (DWORD*)Utils::calcPointer(3, (exeAddr + 0x019CEDE8), localPLayerBase_o);
 		health = (float*)(*localPLayerBase + health_o);
 		mana = (float*)(*localPLayerBase + mana_o);
+
+		uHealth = false;
+		uMana = false;
+		uMenu = true;
 	}
 }

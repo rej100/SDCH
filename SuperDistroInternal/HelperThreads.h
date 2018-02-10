@@ -16,8 +16,39 @@ namespace HelperThreads
 		exx = CreateSolidBrush(ex);
 		while (killSwitch)
 		{
-			std::string temp = "Health: " + std::to_string(*Offsets::health);
-			cgdi->DrawString(900, 50, ex, temp.c_str());
+			std::string temp;
+			if (Offsets::uMenu)
+			{
+				temp = "[F4] Menu: ON";
+			}
+			else
+			{
+				temp = "[F4] Menu: OFF";
+			}
+			cgdi->DrawString(1700, 25, ex, temp.c_str());
+			if (Offsets::uMenu)
+			{
+				if (Offsets::uHealth)
+				{
+					temp = "[F1] Unlimited health: ON";
+				}
+				else
+				{
+					temp = "[F1] Unlimited health: OFF";
+				}
+				cgdi->DrawString(1700, 55, ex, temp.c_str());
+				if (Offsets::uMana)
+				{
+					temp = "[F2] Unlimited mana: ON";
+				}
+				else
+				{
+					temp = "[F2] Unlimited mana: OFF";
+				}
+				cgdi->DrawString(1700, 85, ex, temp.c_str());
+				temp = "[F3] Quit";
+				cgdi->DrawString(1700, 115, ex, temp.c_str());
+			}
 		}
 	}
 	void killThreads()

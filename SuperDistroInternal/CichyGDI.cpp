@@ -13,8 +13,8 @@ CichyGDI::~CichyGDI()
 void CichyGDI::Initialize()
 {
 	targetHDC = GetDC(targetWindow);
-	font = CreateFont(24, 0, 0, 0, FW_DONTCARE, FALSE, TRUE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
-		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, TEXT("Impact"));
+	font = CreateFont(36, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
+		CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH, TEXT("Arial"));
 }
 
 void CichyGDI::DrawLine(float StartX, float StartY, float EndX, float EndY, COLORREF color)
